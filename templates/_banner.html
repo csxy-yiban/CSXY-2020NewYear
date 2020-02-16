@@ -1,0 +1,29 @@
+<link rel="stylesheet" href="/static/light application/activity/new year/_banner-style.css">
+<meta name="viewport"content="width=device-width,hegiht=device-width,user-scalable=yes,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0">
+
+
+{% if user.access_token is string %}
+
+<div id="user-wrap">
+    <div id="go-index">
+        <a href="/light-application/activity/new-year">主页</a>
+    </div>
+    <div id="user-icon">
+    <div class="radius">
+        <a href="/light-application/activity/new-year/{{user.yb_id}}"><img src="{{user.head}}" alt="头像"></a>
+        <p id="user-name">{{user.name}}</p>
+    </div>
+    </div>
+    <div id="user-operate">
+        <a href="/logout">退出登录</a>
+    </div>
+</div>
+
+{% else %}
+
+    <div style="text-align: center;">
+        <a href="https://openapi.yiban.cn/oauth/authorize?client_id=184035e1b699329d&redirect_uri=http://arukione.cn/login">
+            <h3>请登录</h3>
+        </a>
+    </div>
+{% endif %} 

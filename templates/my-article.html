@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ch">
+<head>
+    <meta charset="UTF-8">
+    <title>我的文章</title>
+    <link rel="icon" href="/static/logo.png">
+    <link rel="stylesheet" href="/static/light application/activity/new year/my-article-style.css">
+</head>
+<body>
+
+    {% include 'light application/activity/new year/_banner.html' %}
+
+    <div class="add_article">
+        <a href="/light-application/activity/new-year/{{user.yb_id}}/add-article">写文章</a>
+    </div>
+
+    <div class="my_articles">
+        {% if articles == none%}
+            <p>您还没有发表过文章哦</p>
+        {% else %}
+            {% include 'light application/activity/new year/_article.html' %}
+        {% endif%}
+    </div>
+
+</body>
+</html>

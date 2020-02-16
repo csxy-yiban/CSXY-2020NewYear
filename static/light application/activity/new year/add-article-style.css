@@ -1,0 +1,16 @@
+
+.title-input {
+    padding: 0.625em;
+    width: 70%;
+}
+
+.content-input {
+    padding: 0.625em;
+    margin-top: 1.25em;
+    width: 70%;
+    height: 18.75em;
+}
+
+#submit {
+    font-size: 110%;
+}

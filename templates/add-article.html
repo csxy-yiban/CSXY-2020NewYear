@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ch">
+<head>
+    <meta charset="UTF-8">
+    <title>{{do}}</title>
+    <link rel="stylesheet" href="/static/light application/activity/new year/add-article-style.css">
+    <link rel="icon" href="/static/logo.png">
+</head>
+<body>
+
+    {% include 'light application/activity/new year/_banner.html' %}
+
+    <h1>{{do}}</h1>
+
+    <form method="POST">
+        {{ form.csrf_token }}
+        {{ form.title }}
+        <br>
+        {{ form.content }}
+        <br>
+        {{ form.submit }}
+        {% if do == '修改文章' %}
+        <script>
+            document.getElementById('title').value = `{{article.title}}`;
+            document.getElementById('content').value = `{{article.content}}`;
+        </script>
+        {% endif %}
+    </form>
+</body>
+</html>

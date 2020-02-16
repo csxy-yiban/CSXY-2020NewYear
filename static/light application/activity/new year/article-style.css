@@ -1,0 +1,97 @@
+
+.article-wrap{
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.3);
+    margin: 2% auto 0;
+    width: 80%;
+    padding: 1% 2%;
+}
+
+.title{
+    margin-bottom: 20px;
+    font-size: 150%;
+    font-weight: 900;
+}
+
+
+.comment-wrap{
+    margin: auto;
+}
+
+.comment{
+    text-align: center;
+    margin: 1% auto;
+    background: rgba(255, 255, 255, 0.644);
+    padding: 2%;
+}
+
+.comment-head{
+    width: 5%;
+    min-width: 3em;
+    text-align: center;
+    font-size: 100%;
+    color: rgb(80, 80, 80);
+}
+
+.comment-content{
+    text-align: left;
+    padding-left: 1%;
+    width: 100%;
+}
+
+.icon,.icon img{
+    width: 1.875em;
+    height: 1.875em;
+}
+
+.icon {
+    margin: auto;
+}
+
+.feature{
+    font-size: 0.65em;
+    color:rgb(150, 150, 150);
+}
+
+.is-reply, .input-wrap p{
+    color: rgb(80, 80, 80);
+    margin-bottom: 0;
+}
+
+.feature hr{
+    color: rgb(150, 150, 150);
+    border-top: 0;
+    width: 25%;
+    margin: 0.125em 75% 0.125em 0;
+}
+
+.content{
+    white-space: pre-line;
+    text-align: left;
+    margin-top: 0.3125em;
+    font-size: 0.9em;
+}
+
+.button-wrap a{
+    font-size: 0.9em;
+    text-decoration: none;
+}
+
+.prise {
+    font-weight: bold;
+    font-size: 0.8em;
+}
+
+.prise p{
+    margin: 0;
+}
+
+#prise-icon {
+    height: 1.7em;
+    width: 1.7em;
+}
+
+.user-name {
+    font-size: 0.65em;
+    word-break: break-all;
+}

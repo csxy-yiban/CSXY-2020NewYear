@@ -1,0 +1,32 @@
+
+.comment-wrap{
+    width: 80%;
+    margin: auto;
+}
+
+.input-wrap{
+    text-align: left;
+    font-size: 0.9em;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.comment-input{
+    width: 100%;
+    padding: 0.625em;
+    overflow: auto;
+    word-break:break-all;
+}
+
+textarea {
+    height: 6.25em;
+}
+
+.button-wrap{
+    margin-top: 0.3125em;
+    text-align: right;
+}
+
+button {
+    font-size: 0.8125em;
+}

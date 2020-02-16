@@ -1,0 +1,37 @@
+<link rel="stylesheet" href="/static/light application/activity/new year/_article-style.css">
+
+
+{% for article in articles %}
+    <a class="article" href="{{ url_for('new_year_article', article_id=article.article_id) }}" style="display: flex;">
+
+        <div class="user">
+            <span class="icon"><img src="{{article.user.head}}" alt="头像"></span>
+            <p class="user-name">{{article.user.name}}</p>
+        </div>
+
+        <div class="content-wrap">
+            <div class="title">{{article.title}}</div>
+            <div class="content">{{article.content}}</div>
+            </div>
+
+            <div  class="feature-wrap">
+            <div class="feature-buttom">
+                <span class="blank"></span>
+                <div class="feature">点赞数：{{article.prises}}</div>
+                <div class="feature">评论数：{{article.comments}}</div>
+                <div class="feature">{{article.date}}</div>
+            </div>
+        </div>
+    </a>
+
+    {% if can_delete == true %}
+        <div style="display: flex; text-align: right; flex-direction: row-reverse; margin-right: 10%;">
+            <div class="operate">
+                <a style="color: red;" href="{{ url_for('new_year_article_delete', article_id=article.article_id) }}" onclick="return confirm('删除后无法恢复，是否确定删除？');">删除文章</a>
+            </div>
+            <div class="operate">
+                <a style="color: green;" href="{{ url_for('new_year_article_change', article_id=article.article_id) }}">修改文章</a>
+            </div>
+        </div>
+    {% endif %}
+{% endfor %}

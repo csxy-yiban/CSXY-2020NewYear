@@ -1,0 +1,102 @@
+.article{
+    color: black;
+    text-decoration: none;
+    display: block;
+    border-radius: 1em;
+    padding: 1em;
+    margin: 2% 10% 1% 10%;
+    background: rgba(255, 255, 255, 0.5);
+}
+
+
+.article:visited{
+    color: black;
+}
+
+.article:hover{
+    color: black;
+}
+
+.article:active{
+    color: rgba(54, 54, 54, 0.7)
+}
+
+.title{
+    font-weight: bold;
+    margin-bottom: 2%;
+    font-size: 130%;
+    text-align: center;
+}
+
+.user {
+    font-size: 0.65em;
+    text-align: left;
+    width: 10%;
+    min-width: 4em;
+}
+
+
+.user-name{
+    margin: 0;
+    color: rgb(80, 80, 80);
+    width: 100%;
+    max-width: 100%;
+    word-break: break-all;
+}
+
+.feature-wrap {
+    position: relative;
+    font-size: 0.50em;
+    color:rgb(150, 150, 150);
+    text-align: right;
+    width: 10%;
+    min-width: 6.5em;
+}
+
+.feature-buttom{
+    width: 100%;
+    position: absolute;
+    margin: 0;
+    bottom: 0;
+    right: 0;
+}
+
+.feature {
+    margin-left: 10px;
+    margin-bottom: 0;
+}
+
+
+.icon{
+    display: inline-block;
+}
+
+.icon,.icon img{
+    width: 3em;
+    height: 3em;
+}
+
+.content-wrap{
+    width: 100%;
+    min-height: 9.3em;
+    font-size: 0.9em;
+    text-align: left;
+}
+
+.operate{
+    text-align: center;
+    margin-right: 0.6em;
+    border-radius: 1em;
+    font-size: 0.65em;
+    padding: 0.3em;
+    border-style: inset;
+    background-color: rgb(230, 223, 223);
+}
+
+.operate a{
+    text-decoration: none;
+}
+
+.operate a:visited{
+    text-decoration: none;
+}

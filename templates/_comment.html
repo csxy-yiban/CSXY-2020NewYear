@@ -1,0 +1,25 @@
+<link rel="stylesheet" href="/static/light application/activity/new year/_comment-style.css">
+
+<div class="input-wrap">
+    {% if comment is not defined %}
+    
+        <p>发表评论</p>
+        <form method="POST" action="{{ url_for('new_year_add_comment',article_id=article.article_id,reply_id=0) }}">
+            {{ form.csrf_token }}
+            {{ form.content }}
+            <div class="button-wrap">
+                {{ form.submit }}
+            </div>
+        </form>
+    {% else %}
+        <p>回复@{{ comment.user.name }}</p>
+        <form method="POST" action="{{ url_for('new_year_add_comment',article_id=article.article_id,reply_id=comment.comment_id) }}">
+            {{ form.csrf_token }}
+            {{ form.content }}
+            <div class="button-wrap">
+                {{ form.submit }}
+                <a onclick="document.getElementById('{{comment.comment_id}}').style.display='none';" href="" style="color: red;margin-left: 15px; font-size: 13px;">取消</a>
+            </div>
+        </form>
+    {% endif %}
+</div>

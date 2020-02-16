@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ch">
+<head>
+    <meta charset="UTF-8">
+    <title>{{article.title}}</title>
+
+    <link rel="stylesheet" type="text/css" href="/static/light application/activity/new year/article-style.css"/>
+    <link rel="icon" href="/static/logo.png">
+    <script>
+
+        function prise_request(status){
+            var httpRequest = new XMLHttpRequest();
+            httpRequest.open('POST','{{url_for("new_year_article_prise")}}', true)
+            httpRequest.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+            httpRequest.send('status='+status+'&article_id={{article.article_id}}&yb_id={{user.yb_id}}')
+            httpRequest.onreadystatechange = function(){
+                if(httpRequest.readyState == 4 && httpRequest.status == 200){
+                    if(httpRequest.responseText != '0' && status=='get'){
+                        document.getElementById('prise').checked = true;
+                        document.getElementById('prise-icon').src="/static/light application/activity/new year/LOVE/yes.png";
+                    }
+                }
+            }
+        }
+
+        window.onload = function(){
+            prise_request("get");
+        }
+
+        function changePrise(status){
+            if(document.getElementById("prise").checked){
+                prise_request("insert");
+                document.getElementById('prise-icon').src="/static/light application/activity/new year/LOVE/yes.png";
+            }else{
+                prise_request("delete");
+                document.getElementById('prise-icon').src="/static/light application/activity/new year/LOVE/no.png";
+            }
+        }
+
+    </script>
+
+</head>
+
+<body>
+
+    {% include 'light application/activity/new year/_banner.html' %}
+
+    <article>
+
+        <div class="article-wrap">
+            <div class="title">{{article.title}}</div>
+            <div class="content">{{article.content}}</div>
+            <div style="text-align: right;">
+                <div calss="prise-wrap">
+                    <input type="checkbox" name="prise" id="prise" onclick="changePrise()" style="display: none;">
+                    <label for="prise"><img id="prise-icon" src="/static/light application/activity/new year/LOVE/no.png" alt="点赞"></label>
+                    <label for="prise" class="prise"><p>点赞</p></label>
+                </div>
+            </div>
+        </div>
+
+        <div class="comment-wrap">
+
+            {% include 'light application/activity/new year/_comment.html' %}
+            <hr>
+            {% if comments == 0 %}
+                <p>暂无评论</p>
+            {% else %}
+                <p style="color: rgb(233, 71, 71); font-weight: bold; font-style: initial; font-size: 80%;">评论区</p>
+                {% for comment in comments %}
+                    <div class="comment">
+                        <div style="display: flex;">
+                            <div class="comment-head">
+                                <div style="text-align: center;">
+                                    <div class="icon"><img src="{{comment.user.head}}" alt="{{comment.user.name}}"></div>
+                                    <div class="user-name">
+                                        {{comment.user.name}}
+                                        {% if comment.user.yb_id == article.user.yb_id %}
+                                        <p style="margin-top: 1px;">作者</p>
+                                        {% endif %}
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                            <div class="comment-content">
+                                <div class="feature">
+                                    <div class="date">{{comment.date}}</div>
+                                    {% if comment.reply == None %}
+                                        <div class="is-reply">发表了评论</div>
+                                    {% else %}
+                                        <div class="is-reply">回复了：{{comment.reply}}</div>
+                                    {% endif %}
+                                    <hr>
+                                </div>
+                                <div class="content">{{comment.content}}</div>
+                            </div>
+                        </div>
+
+                        <div class="button-wrap">
+                            <button onclick="document.getElementById('{{comment.comment_id}}').style.display='block';" style="margin-right: 10px;">回复</button>
+                            {% if user.yb_id == comment.user.yb_id %}
+                                <a href="{{ url_for('new_year_comment_delete', comment_id=comment.comment_id) }}" style="color: red;" onclick="return confirm('删除后无法恢复，是否确定删除？');">删除</a>
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div id="{{comment.comment_id}}" style="display: none;">
+                        {% include 'light application/activity/new year/_comment.html' %}
+                    </div>
+                {% endfor %}
+
+            {% endif %}
+        </div>
+
+    </article>
+</body>
+</html>

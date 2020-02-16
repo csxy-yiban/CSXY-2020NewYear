@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ch">
+<head>
+    <meta charset="UTF-8">
+    <title>新年祝贺专栏</title>
+    <link rel="stylesheet" type="text/css" href="/static/light application/activity/new year/index-style.css"/>
+    <script src="/static/light application/activity/new year/_main.js"></script>
+    <link rel="icon" href="/static/logo.png">
+    <script>
+    window.onload = function(){
+    var body = this.document.getElementsByTagName("body");
+    body.style.backgroundImage = "url(web-background.png)";
+    window.alert("?");
+}
+</script>
+</head>
+
+<body>
+
+    {% include 'light application/activity/new year/_banner.html' %}
+    {% include 'light application/activity/new year/_article.html' %}
+
+</body>
+</html>
