@@ -15,7 +15,7 @@
 
 数据库使用 MySQL
 
-目前网站地址: <http://arukione.cn/light-application/activity/new-year/>
+目前网站地址: **已经停用**
 
 ### [PS:](#PS:)
 
